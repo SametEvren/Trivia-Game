@@ -525,18 +525,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 622707403}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: PopUpShow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2057994407}
         m_TargetAssemblyTypeName: Leaderboard.LeaderboardController, Assembly-CSharp
         m_MethodName: OnClickedLeaderboardButton
@@ -1202,11 +1190,23 @@ MonoBehaviour:
   leaderboardAPI: {fileID: 97185934}
   entryNicknames: []
   scrollOrder: 0
+  canvasGroup: {fileID: 1485211625}
 --- !u!224 &648227100 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4251005222778492599, guid: bd9479213723ff145b21cac38da51d1f, type: 3}
   m_PrefabInstance: {fileID: 1521767498}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &827503162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1292348802394040904, guid: bd9479213723ff145b21cac38da51d1f, type: 3}
+  m_PrefabInstance: {fileID: 1521767498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3592db6ebf4835b3e2c23b1b030757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &880601579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,11 +1412,33 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4251005222778492599, guid: bd9479213723ff145b21cac38da51d1f, type: 3}
   m_PrefabInstance: {fileID: 1378214241}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1091931508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1292348802394040904, guid: bd9479213723ff145b21cac38da51d1f, type: 3}
+  m_PrefabInstance: {fileID: 1378214241}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3592db6ebf4835b3e2c23b1b030757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1227428436 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4251005222778492599, guid: bd9479213723ff145b21cac38da51d1f, type: 3}
   m_PrefabInstance: {fileID: 156489395}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1227428438 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1292348802394040904, guid: bd9479213723ff145b21cac38da51d1f, type: 3}
+  m_PrefabInstance: {fileID: 156489395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3592db6ebf4835b3e2c23b1b030757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1361441506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,7 +1496,12 @@ MonoBehaviour:
   itemSpacing: 30
   horizontalMargin: 0
   verticalMargin: 10
-  leaderboardEntryViews: []
+  leaderboardEntryViews:
+  - {fileID: 1227428438}
+  - {fileID: 1847208059}
+  - {fileID: 827503162}
+  - {fileID: 1091931508}
+  - {fileID: 1979831017}
   topEntryPos: {x: 0, y: 0, z: 0}
   bottomEntryPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1378214241
@@ -1589,13 +1616,14 @@ GameObject:
   - component: {fileID: 1485211622}
   - component: {fileID: 1485211624}
   - component: {fileID: 1485211623}
+  - component: {fileID: 1485211625}
   m_Layer: 0
   m_Name: LeaderboardContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1485211622
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1656,6 +1684,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485211621}
   m_CullTransparentMesh: 1
+--- !u!225 &1485211625
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485211621}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1521767498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1897,6 +1937,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4251005222778492599, guid: bd9479213723ff145b21cac38da51d1f, type: 3}
   m_PrefabInstance: {fileID: 2083112519}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1847208059 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1292348802394040904, guid: bd9479213723ff145b21cac38da51d1f, type: 3}
+  m_PrefabInstance: {fileID: 2083112519}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3592db6ebf4835b3e2c23b1b030757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1954182840 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4251005222778492599, guid: bd9479213723ff145b21cac38da51d1f, type: 3}
@@ -1993,6 +2044,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954545681}
   m_CullTransparentMesh: 1
+--- !u!114 &1979831017 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1292348802394040904, guid: bd9479213723ff145b21cac38da51d1f, type: 3}
+  m_PrefabInstance: {fileID: 290228337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3592db6ebf4835b3e2c23b1b030757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1995209813
 GameObject:
   m_ObjectHideFlags: 0

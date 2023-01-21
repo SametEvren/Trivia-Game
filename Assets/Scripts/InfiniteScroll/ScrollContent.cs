@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Leaderboard.LeaderboardEntry;
@@ -40,6 +41,11 @@ public class ScrollContent : Instancable<ScrollContent>
 
     private void Start()
     {
+        InitializeEntryViews();
+    }
+
+    private void InitializeEntryViews()
+    {
         leaderboardEntryViews = GetComponentsInChildren<LeaderboardEntryView>(true).ToList();
         rectTransform = GetComponent<RectTransform>();
         rtChildren = new RectTransform[rectTransform.childCount];
@@ -74,5 +80,10 @@ public class ScrollContent : Instancable<ScrollContent>
             childPos.y = originY - (posOffset + i * (childHeight + itemSpacing));
             rtChildren[i].localPosition = childPos;
         }
+    }
+
+    public void ResetEntryViews()
+    {
+        leaderboardEntryViews = GetComponentsInChildren<LeaderboardEntryView>(true).ToList();
     }
 }

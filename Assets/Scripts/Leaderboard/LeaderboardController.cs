@@ -31,16 +31,19 @@ namespace Leaderboard
             if (LeaderboardAPI.Status == LeaderboardAPI.APIStatus.Error)
                 yield break;
             
+            InfiniteScroll.Instance.OnNewItem -= HandleScrollItemChange;
             InfiniteScroll.Instance.OnNewItem += HandleScrollItemChange;
             yield return new WaitForSeconds(1f);
             ShowLeaderboard();
+            UIManager.Instance.PopUpShow();
         }
 
         public void ShowLeaderboard()
         {
             if (LeaderboardAPI.Status != LeaderboardAPI.APIStatus.Ready)
                 return;
-            
+
+            ScrollContent.Instance.ResetEntryViews();
             for (var index = 0; index < ScrollContent.Instance.leaderboardEntryViews.Count; index++)
             {
                 var entryView = ScrollContent.Instance.leaderboardEntryViews[index];
