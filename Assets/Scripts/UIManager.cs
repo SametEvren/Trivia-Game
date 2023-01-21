@@ -22,44 +22,32 @@ public class UIManager : Instancable<UIManager>
 
     public void PopUpShow()
     {
-        //OnPopUpRequest?.Invoke();
-        //leaderboardPanel.SetActive(true);
-        float alpha = 0;
-        DOTween.To(() => alpha, x => alpha = x, 1, 0.5f)
-            .OnUpdate(() =>
-            {
-                canvasGroup.alpha = alpha;
-            }).OnComplete(() =>
+        canvasGroup.alpha = 0;
+
+        var popUpSequence = DOTween.Sequence()
+            .Append(canvasGroup.DOFade(1, 0.5f))
+            .Join(leaderboardPanel.transform.DOScale(1.2f, 0.5f))
+            .Append(leaderboardPanel.transform.DOScale(1f, 0.5f))
+            .OnComplete(() =>
             {
                 canvasGroup.interactable = true;
                 canvasGroup.blocksRaycasts = true;
             });
-        leaderboardPanel.transform.DOScale(1.2f, 0.5f).OnComplete(() =>
-        {
-            leaderboardPanel.transform.DOScale(1f, 0.5f);
-            // canvasGroup.interactable = true;
-            // canvasGroup.blocksRaycasts = true;
-        });
+
     }
 
     public void PopUpClose()
     {
-        float alpha = 1;
-        DOTween.To(() => alpha, x => alpha = x, 0, 0.5f)
-            .OnUpdate(() =>
-            {
-                canvasGroup.alpha = alpha;
-            }).OnComplete(() =>
+        canvasGroup.alpha = 1;
+
+        var popUpSequence = DOTween.Sequence()
+            .Append(canvasGroup.DOFade(0, 0.5f))
+            .Join(leaderboardPanel.transform.DOScale(0f, 0.5f))
+            .OnComplete(() =>
             {
                 canvasGroup.interactable = false;
                 canvasGroup.blocksRaycasts = false;
+                OnPopUpClosed?.Invoke();
             });
-        OnPopUpClosed?.Invoke();
-        //leaderboardPanel.SetActive(false);
-        
-        leaderboardPanel.transform.DOScale(0f, 0.5f).OnComplete(() =>
-        {
-            
-        });
     }
 }
