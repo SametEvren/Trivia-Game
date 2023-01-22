@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Game.Answers;
+using Game.Managers;
 using UnityEngine;
 using Utility;
 
-namespace Game
+namespace Game.Questions
 {
     public class QuestionController : Instancable<QuestionController>
     {

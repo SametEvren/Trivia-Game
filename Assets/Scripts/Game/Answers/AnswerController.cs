@@ -1,8 +1,9 @@
 ﻿using System;
+using Game.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game
+namespace Game.Answers
 {
     public class AnswerController : MonoBehaviour
     {

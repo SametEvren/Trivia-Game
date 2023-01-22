@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Game
+namespace Game.Questions
 { 
     [System.Serializable]
     public class Question

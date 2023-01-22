@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Game.Answers;
 
-namespace Game
+namespace Game.Questions
 {
     public class QuestionModel
     {

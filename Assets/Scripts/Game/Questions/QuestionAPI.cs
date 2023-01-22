@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using UnityEngine;
 
-namespace Game
+namespace Game.Questions
 {
     public class QuestionAPI : MonoBehaviour
     {
