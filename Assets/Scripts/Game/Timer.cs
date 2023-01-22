@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -20,7 +21,7 @@ public class Timer : MonoBehaviour
 
         if (time <= 0.0f)
         {
-            GameManager.Instance.HandleQuestionAnswered("");
+            GameManager.Instance.HandleQuestionAnswered(String.Empty);
             _canDecrease = false;
             ResetCountdown();
         }

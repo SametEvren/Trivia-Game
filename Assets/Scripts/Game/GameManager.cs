@@ -1,12 +1,9 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using Game;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using Utility;
 
 public class GameManager : Instancable<GameManager>
 {
@@ -14,15 +11,14 @@ public class GameManager : Instancable<GameManager>
     public static event Action<int> OnQuestionChanged ; 
 
     public int score;
-    public TextMeshProUGUI questionBlock;
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI categoryText;
     public Timer timer;
     public int currentQuestionIndex;
     
     private const int CorrectPoint = 10;
     private const int WrongPoint = -5;
     private const int DoesntReplyPoint = -3;
+    
     private IEnumerator Start()
     {
         QuestionAPI.ReadDataFromJSON();
@@ -37,16 +33,12 @@ public class GameManager : Instancable<GameManager>
             .answer;
         
         OnQuestionAnswered?.Invoke(chosenAnswer,correctAnswer);
-        
-        if (correctAnswer == chosenAnswer)
-        {
-            UpdateScoreAndText(CorrectPoint);
-        }
+
+        if (chosenAnswer == String.Empty)
+            UpdateScoreAndText(DoesntReplyPoint);
         else
-        {
-            UpdateScoreAndText(WrongPoint);
-        }
-        
+            UpdateScoreAndText(correctAnswer == chosenAnswer ? CorrectPoint : WrongPoint);
+
         DOVirtual.DelayedCall(1f, ChangeQuestion);
     }
     
