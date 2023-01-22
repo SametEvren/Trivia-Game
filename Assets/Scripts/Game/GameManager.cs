@@ -17,13 +17,14 @@ public class GameManager : Instancable<GameManager>
     private const int WrongPoint = -5;
     private const int DoesntReplyPoint = -3;
     public Timer timer;
-    
+    public TextMeshProUGUI categoryText;
 
 
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(1f);
         QuestionController.Instance.UpdateQuestionView();
+        UpdateCategory();
     }
 
     public void AnswerTheQ(string answerBlock)
@@ -78,9 +79,17 @@ public class GameManager : Instancable<GameManager>
 
     private void UpdateScoreAndText(int amount)
     {
-        score += amount;
-        scoreText.text = score.ToString();
+        float oldScore = score;
+        float newScore = oldScore + amount;
+        DOTween.To(() => oldScore, x => oldScore = x, newScore, 1f)
+            .OnUpdate(() =>
+            {
+                score = Convert.ToInt16(oldScore);
+                scoreText.text = score.ToString();
+            });
     }
+
+    
 
     public void ChangeQuestion()
     {
@@ -93,5 +102,13 @@ public class GameManager : Instancable<GameManager>
         QuestionController.Instance.UpdateQuestionView();
         timer.canDecrease = true;
         timer.RefreshTimer();
+        UpdateCategory();
     }
+    
+    private void UpdateCategory()
+    {
+        categoryText.text = "Category: " + QuestionController.Instance.questionData
+            .questions[QuestionController.Instance.currentQuestionIndex].category;
+    }
+    
 }
