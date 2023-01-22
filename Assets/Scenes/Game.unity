@@ -696,6 +696,7 @@ MonoBehaviour:
   score: 0
   scoreText: {fileID: 2130893494}
   timer: {fileID: 1019874918}
+  categoryText: {fileID: 1242248873}
 --- !u!4 &555826010
 Transform:
   m_ObjectHideFlags: 0
