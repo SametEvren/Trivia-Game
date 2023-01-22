@@ -1,7 +1,4 @@
-﻿using TMPro;
-using UnityEngine;
-
-namespace Game
+﻿namespace Game
 {
     public class AnswerModel
     {

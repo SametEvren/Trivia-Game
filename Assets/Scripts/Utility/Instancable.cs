@@ -10,7 +10,7 @@ public abstract class Instancable<T> : MonoBehaviour where T : class
         {
             if (instance == null || instance.Equals(null))
             {
-                instance = GameObject.FindObjectOfType(typeof(T)) as T;
+                instance = FindObjectOfType(typeof(T)) as T;
             }
             return instance;
         }

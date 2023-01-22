@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Leaderboard;
 using Leaderboard.LeaderboardEntry;
 using UnityEngine;
@@ -50,13 +49,13 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
     {
         HandleVerticalScroll();
     }
-
     
     private void HandleVerticalScroll()
     {
         int currItemIndex = positiveDrag ?  0 : scrollRect.content.childCount - 1;
+        
         var currItem = scrollRect.content.GetChild(currItemIndex);
-
+        
         var maxScrollValue =
             UIManager.Instance.leaderboardEntryRectTransform.rect.height * LeaderboardAPI.leaderboardData.data.Count;
         
@@ -64,7 +63,6 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
             Mathf.Clamp(scrollRect.content.GetComponent<RectTransform>().anchoredPosition.y, MinimumScrollValue, maxScrollValue));
         
         var leaderboardEntryView = currItem.GetComponent<LeaderboardEntryView>();
-        
         
         if (positiveDrag)
         {
@@ -77,14 +75,11 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
                 return;
         }
         
-        
         if (!ReachedThreshold(currItem))
         {
             return;
         }
         
-        
-
         int endItemIndex = positiveDrag ? scrollRect.content.childCount - 1 : 0;
         Transform endItem = scrollRect.content.GetChild(endItemIndex);
         Vector2 newPos = endItem.position;
@@ -103,7 +98,6 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
         OnNewItem?.Invoke(leaderboardEntryView,positiveDrag);
     }
     
-    
     private bool ReachedThreshold(Transform item)
     {
         float posYThreshold = transform.position.y + scrollContent.Height * 0.5f + outOfBoundsThreshold;
@@ -111,5 +105,4 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
         return positiveDrag ? item.position.y - scrollContent.ChildWidth * 0.5f > posYThreshold :
             item.position.y + scrollContent.ChildWidth * 0.5f < negYThreshold;
     }
-
 }

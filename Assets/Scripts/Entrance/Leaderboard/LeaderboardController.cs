@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Leaderboard.LeaderboardEntry;
 using UnityEngine;
 using Utility;

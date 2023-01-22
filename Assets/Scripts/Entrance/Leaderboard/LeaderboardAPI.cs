@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Leaderboard.LeaderboardEntry;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -9,7 +7,6 @@ using Utility;
 
 public class LeaderboardAPI : Instancable<LeaderboardAPI>
 {
-    
     public static LeaderboardData leaderboardData;
     
     private const string UriBeginning = "https://magegamessite.web.app/case1/leaderboard_page_";
