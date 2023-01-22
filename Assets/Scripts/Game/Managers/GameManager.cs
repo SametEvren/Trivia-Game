@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using Game.Questions;
+using Game.Score;
 using TMPro;
 using UnityEngine;
 
@@ -16,30 +17,35 @@ namespace Game.Managers
         public TextMeshProUGUI scoreText;
         public Timer.Timer timer;
         public int currentQuestionIndex;
-    
-        private const int CorrectPoint = 10;
-        private const int WrongPoint = -5;
-        private const int DoesntReplyPoint = -3;
-    
+
+        private QuestionData _questionData;
+        private ScoreConfig _scoreConfig;
+        
         private IEnumerator Start()
         {
             QuestionAPI.ReadDataFromJSON();
             yield return new WaitUntil(() => QuestionAPI.questionData != null);
+            _questionData = QuestionAPI.questionData;
+            
+            ScoreAPI.ReadDataFromJSON();
+            yield return new WaitUntil(() => ScoreAPI.scoreConfig != null);
+            _scoreConfig = ScoreAPI.scoreConfig;
+            
             LoadQuestion();
         }
 
         public void HandleQuestionAnswered(string chosenAnswer)
         {
-            string correctAnswer = QuestionAPI.questionData
+            string correctAnswer = _questionData
                 .questions[currentQuestionIndex]
                 .answer;
         
             OnQuestionAnswered?.Invoke(chosenAnswer,correctAnswer);
 
             if (chosenAnswer == String.Empty)
-                UpdateScoreAndText(DoesntReplyPoint);
+                UpdateScoreAndText(_scoreConfig.timeout);
             else
-                UpdateScoreAndText(correctAnswer == chosenAnswer ? CorrectPoint : WrongPoint);
+                UpdateScoreAndText(correctAnswer == chosenAnswer ? _scoreConfig.correct : _scoreConfig.wrong);
 
             DOVirtual.DelayedCall(1f, ChangeQuestion);
         }
@@ -59,7 +65,7 @@ namespace Game.Managers
         private void ChangeQuestion()
         {
             currentQuestionIndex++;
-            currentQuestionIndex %= QuestionAPI.questionData.questions.Count;
+            currentQuestionIndex %= _questionData.questions.Count;
         
             OnQuestionChanged?.Invoke(currentQuestionIndex);
             LoadQuestion();
