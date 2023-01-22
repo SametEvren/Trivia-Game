@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    private string gameSceneName = "Game";
+    private const string GameSceneName = "Game";
     
     public void UploadGameScene()
     {
-        SceneManager.LoadScene(gameSceneName);
+        SceneManager.LoadScene(GameSceneName);
     }
 }
