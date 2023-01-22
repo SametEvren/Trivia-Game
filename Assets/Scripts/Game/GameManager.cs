@@ -6,23 +6,26 @@ using Game;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 
 public class GameManager : Instancable<GameManager>
 {
-    public TextMeshProUGUI questionBlock;
-    public List<TextMeshProUGUI> answerBlocks;
-    public int score;
-    public TextMeshProUGUI scoreText;
     private const int CorrectPoint = 10;
     private const int WrongPoint = -5;
     private const int DoesntReplyPoint = -3;
-    public Timer timer;
+    
+    public int score;
+    public List<TextMeshProUGUI> answerBlocks;
+    public TextMeshProUGUI questionBlock;
+    public TextMeshProUGUI scoreText;
     public TextMeshProUGUI categoryText;
+    public Timer timer;
 
 
+    
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => QuestionAPI.Status != APIStatus.Empty);
         QuestionController.Instance.UpdateQuestionView();
         UpdateCategory();
     }

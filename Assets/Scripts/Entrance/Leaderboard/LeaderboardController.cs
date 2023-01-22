@@ -2,6 +2,7 @@
 using System.Collections;
 using Leaderboard.LeaderboardEntry;
 using UnityEngine;
+using Utility;
 
 namespace Leaderboard
 {
@@ -26,9 +27,9 @@ namespace Leaderboard
         {
             LeaderboardAPI.Instance.UpdateLeaderboardData();
             
-            yield return new WaitUntil(() => LeaderboardAPI.Status != LeaderboardAPI.APIStatus.Empty);
+            yield return new WaitUntil(() => LeaderboardAPI.Status != APIStatus.Empty);
             
-            if (LeaderboardAPI.Status == LeaderboardAPI.APIStatus.Error)
+            if (LeaderboardAPI.Status == APIStatus.Error)
                 yield break;
             
             InfiniteScroll.Instance.OnNewItem -= HandleScrollItemChange;
@@ -40,7 +41,7 @@ namespace Leaderboard
 
         public void ShowLeaderboard()
         {
-            if (LeaderboardAPI.Status != LeaderboardAPI.APIStatus.Ready)
+            if (LeaderboardAPI.Status != APIStatus.Ready)
                 return;
 
             ScrollContent.Instance.ResetEntryViews();

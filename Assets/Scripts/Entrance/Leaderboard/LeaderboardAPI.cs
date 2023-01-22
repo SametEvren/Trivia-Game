@@ -5,6 +5,7 @@ using Leaderboard.LeaderboardEntry;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
+using Utility;
 
 public class LeaderboardAPI : Instancable<LeaderboardAPI>
 {
@@ -86,13 +87,6 @@ public class LeaderboardAPI : Instancable<LeaderboardAPI>
             data = null
         };
     }
-
-    
-    
-    public enum APIStatus
-    {
-        Ready,
-        Empty,
-        Error
-    }
 }
+
+
