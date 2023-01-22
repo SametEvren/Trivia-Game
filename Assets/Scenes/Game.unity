@@ -742,6 +742,7 @@ MonoBehaviour:
   scoreText: {fileID: 2130893494}
   categoryText: {fileID: 1242248873}
   timer: {fileID: 1019874918}
+  currentQuestionIndex: 0
 --- !u!4 &555826010
 Transform:
   m_ObjectHideFlags: 0
@@ -847,6 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14fe22570dd55f4cb6fdfa503dc1c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  category: {fileID: 1242248873}
   question: {fileID: 253195756}
   answers:
   - {fileID: 1096209032}
@@ -1945,7 +1947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20f0957bf334af7b58b547c3bb36626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentQuestionIndex: 0
   questionView: {fileID: 763399481}
 --- !u!4 &2107259091
 Transform:

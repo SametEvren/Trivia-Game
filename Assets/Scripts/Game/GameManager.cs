@@ -20,21 +20,19 @@ public class GameManager : Instancable<GameManager>
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI categoryText;
     public Timer timer;
-
-
+    public int currentQuestionIndex;
     
     private IEnumerator Start()
     {
         QuestionAPI.ReadDataFromJSON();
         yield return new WaitUntil(() => QuestionAPI.questionData != null);
         StartCoroutine(QuestionController.Instance.UpdateQuestionView());
-        UpdateCategory();
     }
 
     public void AnswerTheQ(string answerBlock)
     {
-        string correctAnswer = QuestionController.Instance.QuestionData
-            .questions[QuestionController.Instance.currentQuestionIndex]
+        string correctAnswer = QuestionAPI.questionData
+            .questions[currentQuestionIndex]
             .answer;
         if (correctAnswer == answerBlock)
         {
@@ -75,10 +73,7 @@ public class GameManager : Instancable<GameManager>
                             ChangeQuestion();
                         });
             }
-
-            
         }
-        
     }
 
     private void UpdateScoreAndText(int amount)
@@ -92,27 +87,14 @@ public class GameManager : Instancable<GameManager>
                 scoreText.text = score.ToString();
             });
     }
-
     
-
     public void ChangeQuestion()
     {
-        if (QuestionController.Instance.QuestionData.questions.Count - 1 ==
-            QuestionController.Instance.currentQuestionIndex)
-            QuestionController.Instance.currentQuestionIndex = 0;
-        else
-            QuestionController.Instance.currentQuestionIndex++;
-
+        currentQuestionIndex++;
+        currentQuestionIndex %= QuestionAPI.questionData.questions.Count;
+        
         StartCoroutine(QuestionController.Instance.UpdateQuestionView());
         timer.canDecrease = true;
         timer.RefreshTimer();
-        UpdateCategory();
     }
-    
-    private void UpdateCategory()
-    {
-        categoryText.text = "Category: " + QuestionController.Instance.QuestionData
-            .questions[QuestionController.Instance.currentQuestionIndex].category;
-    }
-    
 }

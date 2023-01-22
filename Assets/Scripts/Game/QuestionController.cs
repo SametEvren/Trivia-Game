@@ -6,21 +6,16 @@ namespace Game
 {
     public class QuestionController : Instancable<QuestionController>
     {
-        public int currentQuestionIndex;
-
-        [SerializeField] private QuestionView questionView;
-
-        public QuestionData QuestionData => QuestionAPI.questionData;
-
-        private Question CurrentQuestion => QuestionData.questions[currentQuestionIndex];
         
-
-
+        [SerializeField] private QuestionView questionView;
+        
+        private QuestionData QuestionData => QuestionAPI.questionData;
+        private Question CurrentQuestion => QuestionData.questions[GameManager.Instance.currentQuestionIndex];
+        
         public IEnumerator UpdateQuestionView()
         {
             QuestionAPI.ReadDataFromJSON();
             yield return new WaitUntil(() => QuestionAPI.questionData != null);
-            //CurrentQuestion = QuestionData.questions[currentQuestionIndex];
             List<AnswerModel> answerModels = new();
             
             foreach (var answerText in CurrentQuestion.choices)
@@ -34,6 +29,7 @@ namespace Game
             var questionModel = new QuestionModel()
             {
                 questionText = CurrentQuestion.question,
+                categoryText = CurrentQuestion.category,
                 answerModels = answerModels
             };
             

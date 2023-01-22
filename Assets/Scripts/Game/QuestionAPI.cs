@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Leaderboard.LeaderboardEntry;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.Networking;
-using Utility;
 
 namespace Game
 {
