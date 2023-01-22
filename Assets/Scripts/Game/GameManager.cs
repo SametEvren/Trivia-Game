@@ -25,14 +25,15 @@ public class GameManager : Instancable<GameManager>
     
     private IEnumerator Start()
     {
-        yield return new WaitUntil(() => QuestionAPI.Status != APIStatus.Empty);
-        QuestionController.Instance.UpdateQuestionView();
+        QuestionAPI.ReadDataFromJSON();
+        yield return new WaitUntil(() => QuestionAPI.questionData != null);
+        StartCoroutine(QuestionController.Instance.UpdateQuestionView());
         UpdateCategory();
     }
 
     public void AnswerTheQ(string answerBlock)
     {
-        string correctAnswer = QuestionController.Instance.questionData
+        string correctAnswer = QuestionController.Instance.QuestionData
             .questions[QuestionController.Instance.currentQuestionIndex]
             .answer;
         if (correctAnswer == answerBlock)
@@ -96,13 +97,13 @@ public class GameManager : Instancable<GameManager>
 
     public void ChangeQuestion()
     {
-        if (QuestionController.Instance.questionData.questions.Count - 1 ==
+        if (QuestionController.Instance.QuestionData.questions.Count - 1 ==
             QuestionController.Instance.currentQuestionIndex)
             QuestionController.Instance.currentQuestionIndex = 0;
         else
             QuestionController.Instance.currentQuestionIndex++;
 
-        QuestionController.Instance.UpdateQuestionView();
+        StartCoroutine(QuestionController.Instance.UpdateQuestionView());
         timer.canDecrease = true;
         timer.RefreshTimer();
         UpdateCategory();
@@ -110,7 +111,7 @@ public class GameManager : Instancable<GameManager>
     
     private void UpdateCategory()
     {
-        categoryText.text = "Category: " + QuestionController.Instance.questionData
+        categoryText.text = "Category: " + QuestionController.Instance.QuestionData
             .questions[QuestionController.Instance.currentQuestionIndex].category;
     }
     

@@ -2,6 +2,7 @@
 
 namespace Game
 { 
+    [System.Serializable]
     public class Question
     {
         public string category { get; set; }
@@ -10,6 +11,7 @@ namespace Game
         public string answer { get; set; }
     }
 
+    [System.Serializable]
     public class QuestionData
     {
         public List<Question> questions { get; set; }

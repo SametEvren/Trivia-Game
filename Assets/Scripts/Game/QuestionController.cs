@@ -1,20 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
 {
     public class QuestionController : Instancable<QuestionController>
     {
-        [SerializeField] private QuestionView questionView;
-        public QuestionData questionData;
         public int currentQuestionIndex;
-        private Question CurrentQuestion; //=> _questionData.questions[_currentQuestionIndex];
+
+        [SerializeField] private QuestionView questionView;
+
+        public QuestionData QuestionData => QuestionAPI.questionData;
+
+        private Question CurrentQuestion => QuestionData.questions[currentQuestionIndex];
         
 
 
-        public void UpdateQuestionView()
+        public IEnumerator UpdateQuestionView()
         {
-            CurrentQuestion = questionData.questions[currentQuestionIndex];
+            QuestionAPI.ReadDataFromJSON();
+            yield return new WaitUntil(() => QuestionAPI.questionData != null);
+            //CurrentQuestion = QuestionData.questions[currentQuestionIndex];
             List<AnswerModel> answerModels = new();
             
             foreach (var answerText in CurrentQuestion.choices)
