@@ -232,11 +232,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77250583}
   m_CullTransparentMesh: 1
---- !u!1 &194526044 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3116491702022396019, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 274952484}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &194526045 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3116491702022396018, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
@@ -247,79 +242,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8088623722134257027, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
   m_PrefabInstance: {fileID: 274952484}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194526044}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b62ce2a2565f4d449fddf0df571a74ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &194526047 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3116491702022396017, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 274952484}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194526044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &194526049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194526044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 194526047}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 555826009}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: AnswerTheQ
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: B
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &245025493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -327,6 +255,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1263355551}
     m_Modifications:
+    - target: {fileID: 1558863956070757356, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: optionName
+      value: D
+      objectReference: {fileID: 0}
     - target: {fileID: 3116491702022396018, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -414,6 +346,30 @@ PrefabInstance:
     - target: {fileID: 3116491702022396019, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
       propertyPath: m_Name
       value: AnswerD
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 555826009}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleQuestionAnswered
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: D
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8088623722134257027, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
       propertyPath: answerChoice
@@ -564,6 +520,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1263355551}
     m_Modifications:
+    - target: {fileID: 1558863956070757356, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: optionName
+      value: B
+      objectReference: {fileID: 0}
     - target: {fileID: 3116491702022396018, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -652,6 +612,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerB
       objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 555826009}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleQuestionAnswered
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: B
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8088623722134257027, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
       propertyPath: answerChoice
       value: B
@@ -687,7 +671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374347ea6d4087a43882dc8521ca6259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textJSON: {fileID: 4900000, guid: 53b0223aac68dd74796ba583ab1a4992, type: 3}
 --- !u!4 &325438049
 Transform:
   m_ObjectHideFlags: 0
@@ -733,11 +716,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  answerBlocks:
-  - {fileID: 1910285257}
-  - {fileID: 2010331079}
-  - {fileID: 2097778972}
-  - {fileID: 1821226738}
   questionBlock: {fileID: 253195756}
   scoreText: {fileID: 2130893494}
   categoryText: {fileID: 1242248873}
@@ -855,11 +833,6 @@ MonoBehaviour:
   - {fileID: 194526046}
   - {fileID: 1986536912}
   - {fileID: 882443736}
---- !u!1 &882443734 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3116491702022396019, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 245025493}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &882443735 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3116491702022396018, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
@@ -870,79 +843,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8088623722134257027, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
   m_PrefabInstance: {fileID: 245025493}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882443734}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b62ce2a2565f4d449fddf0df571a74ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &882443737 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3116491702022396017, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 245025493}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882443734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &882443739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882443734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 882443737}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 555826009}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: AnswerTheQ
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: D
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1003345529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,7 +981,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 20
   timerText: {fileID: 1680067922}
-  canDecrease: 1
 --- !u!4 &1019874919
 Transform:
   m_ObjectHideFlags: 0
@@ -1091,94 +996,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1096209028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3116491702022396019, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 3116491700959808247}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1096209029 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3116491702022396018, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
   m_PrefabInstance: {fileID: 3116491700959808247}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1096209030 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3116491702022396017, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 3116491700959808247}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096209028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1096209032 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8088623722134257027, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
   m_PrefabInstance: {fileID: 3116491700959808247}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096209028}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b62ce2a2565f4d449fddf0df571a74ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1096209033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096209028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1096209030}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 555826009}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: AnswerTheQ
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: A
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1182919444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1186,6 +1019,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1263355551}
     m_Modifications:
+    - target: {fileID: 1558863956070757356, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: optionName
+      value: C
+      objectReference: {fileID: 0}
     - target: {fileID: 3116491702022396018, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1273,6 +1110,30 @@ PrefabInstance:
     - target: {fileID: 3116491702022396019, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
       propertyPath: m_Name
       value: AnswerC
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 555826009}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleQuestionAnswered
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: C
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8088623722134257027, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
       propertyPath: answerChoice
@@ -1719,28 +1580,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680067920}
   m_CullTransparentMesh: 1
---- !u!114 &1821226738 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3116491701761681726, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 245025493}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1910285257 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3116491701761681726, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 3116491700959808247}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1966073709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,11 +1647,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1986536910 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3116491702022396019, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 1182919444}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1986536911 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3116491702022396018, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
@@ -1823,99 +1657,10 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8088623722134257027, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
   m_PrefabInstance: {fileID: 1182919444}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986536910}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b62ce2a2565f4d449fddf0df571a74ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1986536913 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3116491702022396017, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 1182919444}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986536910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1986536915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986536910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1986536913}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 555826009}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: AnswerTheQ
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: C
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2010331079 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3116491701761681726, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 274952484}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2097778972 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3116491701761681726, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
-  m_PrefabInstance: {fileID: 1182919444}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2107259089
@@ -2211,6 +1956,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1263355551}
     m_Modifications:
+    - target: {fileID: 1558863956070757356, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: optionName
+      value: A
+      objectReference: {fileID: 0}
     - target: {fileID: 3116491702022396018, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2298,6 +2047,30 @@ PrefabInstance:
     - target: {fileID: 3116491702022396019, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
       propertyPath: m_Name
       value: AnswerA
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 555826009}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleQuestionAnswered
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020676388072235957, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8088623722134257027, guid: e795b8a5e35612645bd827c2599bade3, type: 3}
       propertyPath: answerChoice

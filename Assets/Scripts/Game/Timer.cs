@@ -7,11 +7,11 @@ public class Timer : MonoBehaviour
 {
     public float time = 20.0f;
     public TextMeshProUGUI timerText;
-    public bool canDecrease;
+    private bool _canDecrease;
     
     void Update()
     {
-        if(time > 0 && canDecrease)
+        if(time > 0 && _canDecrease)
             time -= Time.deltaTime;
         if (time < 0)
             time = 0;
@@ -20,14 +20,20 @@ public class Timer : MonoBehaviour
 
         if (time <= 0.0f)
         {
-            GameManager.Instance.AnswerTheQ("");
-            canDecrease = false;
-            RefreshTimer();
+            GameManager.Instance.HandleQuestionAnswered("");
+            _canDecrease = false;
+            ResetCountdown();
         }
     }
 
-    public void RefreshTimer()
+    public void ResetCountdown()
     {
         time = 20.0f;
+    }
+
+    public void RestartTimer()
+    {
+        _canDecrease = true;
+        ResetCountdown();
     }
 }
