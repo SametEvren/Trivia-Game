@@ -10,6 +10,7 @@ namespace Game
     {
         [SerializeField] private TextMeshProUGUI answerText;
         [SerializeField] private Image background;
+        public string answerChoice;
         
         public void SetAnswer(string newAnswer) => answerText.text = newAnswer;
 
