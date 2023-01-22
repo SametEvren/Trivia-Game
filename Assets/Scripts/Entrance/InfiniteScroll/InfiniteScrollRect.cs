@@ -65,7 +65,7 @@ namespace UnityEngine.UI
         public RectTransform viewport { get { return m_Viewport; } set { m_Viewport = value; SetDirtyCaching(); } }
 
         [SerializeField]
-        private float m_ScrollFactor = 1.0f;
+        private float m_ScrollFactor;
         public float scrollFactor { get { return m_ScrollFactor; } set { m_ScrollFactor = value; } }
 
         [SerializeField]

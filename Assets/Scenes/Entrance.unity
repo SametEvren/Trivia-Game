@@ -227,8 +227,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PLAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d5c545af90874ff4a869d0a4e8034939, type: 2}
-  m_sharedMaterial: {fileID: -2978379440581958871, guid: d5c545af90874ff4a869d0a4e8034939, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec0497c8e3ced974a999683e11a8a360, type: 2}
+  m_sharedMaterial: {fileID: -3667758223531537893, guid: ec0497c8e3ced974a999683e11a8a360, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   m_DecelerationRate: 1
   m_ScrollSensitivity: 5
   m_Viewport: {fileID: 1954545682}
-  m_ScrollFactor: 1
+  m_ScrollFactor: 0.7
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
   m_HorizontalScrollbarVisibility: 0
@@ -1857,8 +1857,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LEADERBOARD
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d5c545af90874ff4a869d0a4e8034939, type: 2}
-  m_sharedMaterial: {fileID: -2978379440581958871, guid: d5c545af90874ff4a869d0a4e8034939, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec0497c8e3ced974a999683e11a8a360, type: 2}
+  m_sharedMaterial: {fileID: -3667758223531537893, guid: ec0497c8e3ced974a999683e11a8a360, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1882,7 +1882,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.35
+  m_fontSize: 45.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
