@@ -23,7 +23,13 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
     private bool positiveDrag;
 
     private const float MinimumScrollValue = -250f;
-    
+
+    public bool completelyOpen;
+
+    [SerializeField]private Transform upLimit, downLimit;
+
+    private float _upThreshold = 70f;
+    private float _downThreshold = -50f;
     #endregion
 
     private void Start()
@@ -32,6 +38,11 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
         scrollRect.vertical = true;
         scrollRect.horizontal = false;
         scrollRect.movementType = InfiniteScrollRect.MovementType.Unrestricted;
+
+        // outOfBoundsThreshold *= scrollContent.AdjustMultiplier;
+        // var adjustment = (scrollContent.ReferenceHeight - Screen.height) / (scrollContent.ReferenceHeight / (Screen.height / 2));
+        // outOfBoundsThreshold -= adjustment;
+        //*= scrollContent.AdjustMultiplier;
     }
     
     public void OnBeginDrag(PointerEventData eventData)
@@ -75,7 +86,7 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
                 return;
         }
         
-        if (!ReachedThreshold(currItem))
+        if (!ReachedThreshold(currItem) || !completelyOpen)
         {
             return;
         }
@@ -86,11 +97,11 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
 
         if (positiveDrag) //mouse upwards
         {
-            newPos.y = endItem.position.y - scrollContent.ChildHeight * 1.5f + scrollContent.ItemSpacing;
+            newPos.y = endItem.position.y - scrollContent.ChildHeight * scrollContent.AdjustMultiplier * 1f - scrollContent.ItemSpacing;
         }
         else //mouse downwards
         {
-            newPos.y = endItem.position.y + scrollContent.ChildHeight * 1.5f - scrollContent.ItemSpacing;
+            newPos.y = endItem.position.y + scrollContent.ChildHeight * scrollContent.AdjustMultiplier * 1f + scrollContent.ItemSpacing;
         }
 
         currItem.position = newPos;
@@ -100,9 +111,10 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
     
     private bool ReachedThreshold(Transform item)
     {
-        float posYThreshold = transform.position.y + scrollContent.Height * 0.5f + outOfBoundsThreshold;
-        float negYThreshold = transform.position.y - scrollContent.Height * 0.5f - outOfBoundsThreshold;
-        return positiveDrag ? item.position.y - scrollContent.ChildWidth * 0.5f > posYThreshold :
-            item.position.y + scrollContent.ChildWidth * 0.5f < negYThreshold;
+        if (positiveDrag)
+            return Mathf.Abs(item.position.y - upLimit.position.y) < _upThreshold;
+        
+        return item.position.y - downLimit.position.y < _downThreshold;
+        
     }
 }

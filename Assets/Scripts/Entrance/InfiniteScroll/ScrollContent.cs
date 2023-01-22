@@ -10,6 +10,8 @@ public class ScrollContent : Instancable<ScrollContent>
     public float ItemSpacing => itemSpacing;
     
     public float VerticalMargin => verticalMargin;
+
+    public float ReferenceHeight => referenceHeight;
     
     public float Width => width;
     
@@ -18,6 +20,8 @@ public class ScrollContent : Instancable<ScrollContent>
     public float ChildWidth => childWidth;
     
     public float ChildHeight => childHeight;
+    
+    public float AdjustMultiplier => Screen.height / referenceHeight;
     #endregion
 
     #region Private Members
@@ -33,14 +37,18 @@ public class ScrollContent : Instancable<ScrollContent>
     private float itemSpacing;
     
     [SerializeField]
-    private float horizontalMargin, verticalMargin;
+    private float verticalMargin;
     
     public List<LeaderboardEntryView> leaderboardEntryViews;
     public Vector3 topEntryPos, bottomEntryPos;
+    [SerializeField] private float referenceHeight = 2160;
+    
     #endregion
 
     private void Start()
     {
+        itemSpacing *= AdjustMultiplier;
+        verticalMargin *= AdjustMultiplier;
         InitializeEntryViews();
     }
 
@@ -59,7 +67,7 @@ public class ScrollContent : Instancable<ScrollContent>
             rtChildren[i] = rectTransform.GetChild(i) as RectTransform;
         }
         
-        width = rectTransform.rect.width - (2 * horizontalMargin);
+        width = rectTransform.rect.width;
         
         height = rectTransform.rect.height - (2 * verticalMargin);
 
