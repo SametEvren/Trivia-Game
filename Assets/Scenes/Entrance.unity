@@ -1105,7 +1105,7 @@ GameObject:
   - component: {fileID: 521267389}
   - component: {fileID: 521267392}
   - component: {fileID: 521267391}
-  - component: {fileID: 521267395}
+  - component: {fileID: 521267396}
   - component: {fileID: 521267394}
   m_Layer: 0
   m_Name: Scroll
@@ -1186,11 +1186,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollContent: {fileID: 1361441508}
-  outOfBoundsThreshold: 10
   completelyOpen: 0
   upLimit: {fileID: 516069564}
   downLimit: {fileID: 2071688571}
---- !u!114 &521267395
+--- !u!114 &521267396
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1199,7 +1198,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 521267388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9620df68248a34f478f037e125ef31e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1361441507}
@@ -1208,10 +1207,9 @@ MonoBehaviour:
   m_MovementType: 0
   m_Elasticity: 0.1
   m_Inertia: 0
-  m_DecelerationRate: 1
+  m_DecelerationRate: 0.135
   m_ScrollSensitivity: 5
   m_Viewport: {fileID: 1954545682}
-  m_ScrollFactor: 0.7
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
   m_HorizontalScrollbarVisibility: 0
@@ -1573,7 +1571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000019549367, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 840.89, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1361441508
@@ -1748,7 +1746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.4652778}
-  m_AnchoredPosition: {x: 0, y: 115}
+  m_AnchoredPosition: {x: 0, y: 114.99963}
   m_SizeDelta: {x: -209.0529, y: -116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1485211623

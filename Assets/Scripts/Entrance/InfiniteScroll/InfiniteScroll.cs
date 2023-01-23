@@ -13,13 +13,14 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
     [SerializeField]
     private ScrollContent scrollContent;
 
-    private InfiniteScrollRect scrollRect;
+    private ScrollRect scrollRect;
     
     private Vector2 lastDragPosition;
     
     private bool positiveDrag;
 
     private const float MinimumScrollValue = -250f;
+    private const float ExtraMargin = 250f;
 
     public bool completelyOpen;
 
@@ -31,10 +32,10 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
 
     private void Start()
     {
-        scrollRect = GetComponent<InfiniteScrollRect>();
+        scrollRect = GetComponent<ScrollRect>();
         scrollRect.vertical = true;
         scrollRect.horizontal = false;
-        scrollRect.movementType = InfiniteScrollRect.MovementType.Unrestricted;
+        scrollRect.movementType = ScrollRect.MovementType.Unrestricted;
     }
     
     public void OnBeginDrag(PointerEventData eventData)
@@ -60,7 +61,7 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
         var currItem = scrollRect.content.GetChild(currItemIndex);
         
         var maxScrollValue =
-            UIManager.Instance.leaderboardEntryRectTransform.rect.height * LeaderboardAPI.leaderboardData.data.Count;
+            UIManager.Instance.leaderboardEntryRectTransform.rect.height * LeaderboardAPI.leaderboardData.data.Count + ExtraMargin;
         
         scrollRect.content.GetComponent<RectTransform>().anchoredPosition = new Vector2(0,
             Mathf.Clamp(scrollRect.content.GetComponent<RectTransform>().anchoredPosition.y, MinimumScrollValue, maxScrollValue));
