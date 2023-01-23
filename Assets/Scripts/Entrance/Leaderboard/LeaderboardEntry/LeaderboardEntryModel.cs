@@ -1,4 +1,4 @@
-﻿namespace Leaderboard.LeaderboardEntry
+﻿namespace Entrance.Leaderboard.LeaderboardEntry
 {
     public class LeaderboardEntryModel
     {

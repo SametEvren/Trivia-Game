@@ -5,8 +5,10 @@ namespace Game.Questions
 {
     public class QuestionAPI : MonoBehaviour
     {
+        #region Public Properties
         public static QuestionData questionData;
-
+        #endregion
+        
         private void Awake()
         {
             ReadDataFromJSON();

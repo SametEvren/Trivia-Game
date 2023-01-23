@@ -1,12 +1,13 @@
-﻿using Game.Questions;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Game.Score
 {
     public class ScoreAPI : MonoBehaviour
     {
+        #region Public Properties
         public static ScoreConfig scoreConfig;
+        #endregion
 
         private void Awake()
         {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Game.Answers;
 using Game.Managers;
@@ -11,11 +10,13 @@ namespace Game.Questions
 {
     public class QuestionController : Instancable<QuestionController>
     {
+        #region Private Properties
         [SerializeField] private QuestionView questionView;
         [SerializeField] private List<AnswerController> answerControllers;
-        
         private QuestionData QuestionData => QuestionAPI.questionData;
         private Question CurrentQuestion => QuestionData.questions[GameManager.Instance.currentQuestionIndex];
+        #endregion
+        
 
         private void OnValidate()
         {

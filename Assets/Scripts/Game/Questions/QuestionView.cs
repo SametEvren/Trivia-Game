@@ -7,10 +7,11 @@ namespace Game.Questions
 {
     public class QuestionView : MonoBehaviour
     {
+        #region Private Properties
         [SerializeField] private TextMeshProUGUI category;
         [SerializeField] private TextMeshProUGUI question;
         [SerializeField] private List<AnswerView> answers;
-    
+        #endregion
 
         public void Render(QuestionModel model)
         {

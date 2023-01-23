@@ -7,10 +7,12 @@ namespace Game.Answers
 {
     public class AnswerController : MonoBehaviour
     {
+        #region Private Properties
         [SerializeField] private AnswerView view;
         [SerializeField] private Button button;
         [SerializeField] private string optionName;
         private AnswerStatus _status = AnswerStatus.Default;
+        #endregion
         
         private void Start()
         {

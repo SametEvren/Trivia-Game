@@ -1,13 +1,13 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Leaderboard.LeaderboardEntry
+namespace Entrance.Leaderboard.LeaderboardEntry
 {
     public class LeaderboardEntryView : MonoBehaviour
     {
+        #region Public Properties
         public TextMeshProUGUI rankText, nicknameText, scoreText;
-        public Image backgroundImage;
+        #endregion
 
         public void Render(LeaderboardEntryModel model)
         {

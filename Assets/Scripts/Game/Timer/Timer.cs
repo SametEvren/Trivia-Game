@@ -8,11 +8,16 @@ namespace Game.Timer
 {
     public class Timer : MonoBehaviour
     {
-        public const float TimeDefault = 20f;
+        #region Public Properties
         public float time = 20.0f;
         public TextMeshProUGUI timerText;
-        private bool _canDecrease;
+        #endregion
+        
+        #region Private Properties
         [SerializeField] private ProceduralImage backgroundImage;
+        private const float TimeDefault = 20f;
+        private bool _canDecrease;
+        #endregion
     
         void Update()
         {

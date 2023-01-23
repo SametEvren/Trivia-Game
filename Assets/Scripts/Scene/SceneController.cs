@@ -1,12 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour
+namespace Scene
 {
-    private const string GameSceneName = "Game";
-    
-    public void UploadGameScene()
+    public class SceneController : MonoBehaviour
     {
-        SceneManager.LoadScene(GameSceneName);
+        #region Private Properties
+        private const string GameSceneName = "Game";
+        #endregion
+    
+        public void UploadGameScene()
+        {
+            SceneManager.LoadScene(GameSceneName);
+        }
     }
 }

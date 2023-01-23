@@ -12,23 +12,24 @@ namespace Game.Managers
 {
     public class GameManager : Instancable<GameManager>
     {
-        public static event Action<string,string> OnQuestionAnswered; 
-        
-        public static event Action<int> OnQuestionChanged; 
-
+        #region Public Properties
+        public static event Action<string,string> OnQuestionAnswered;
+        public static event Action<int> OnQuestionChanged;
         public int score;
         public TextMeshProUGUI scoreText;
         public TextMeshProUGUI answerFeedback;
         public Timer.Timer timer;
         public int currentQuestionIndex;
+        #endregion
 
+        #region Private Properties
         private QuestionData _questionData;
         private ScoreConfig _scoreConfig;
         private bool _doubleChance;
         private string correctAnswer => _questionData
             .questions[currentQuestionIndex]
             .answer;
-
+        #endregion
         
         private IEnumerator Start()
         {
@@ -82,6 +83,7 @@ namespace Game.Managers
                     answerFeedback.gameObject.SetActive(false);
                 });
         }
+        
         private void UpdateScoreAndText(int amount)
         {
             float oldScore = score;

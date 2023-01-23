@@ -7,8 +7,10 @@ namespace Game.Answers
 {
     public class AnswerView : MonoBehaviour
     {
+        #region Private Properties
         [SerializeField] private TextMeshProUGUI answerText;
         [SerializeField] private Image background;
+        #endregion
         
         public void SetAnswer(string newAnswer) => answerText.text = newAnswer;
 

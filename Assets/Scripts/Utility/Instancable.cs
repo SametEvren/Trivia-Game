@@ -1,18 +1,21 @@
 using UnityEngine;
 
-public abstract class Instancable<T> : MonoBehaviour where T : class
+namespace Utility
 {
-    private static T instance;
-
-    public static T Instance
+    public abstract class Instancable<T> : MonoBehaviour where T : class
     {
-        get
+        private static T instance;
+
+        public static T Instance
         {
-            if (instance == null || instance.Equals(null))
+            get
             {
-                instance = FindObjectOfType(typeof(T)) as T;
+                if (instance == null || instance.Equals(null))
+                {
+                    instance = FindObjectOfType(typeof(T)) as T;
+                }
+                return instance;
             }
-            return instance;
         }
     }
 }

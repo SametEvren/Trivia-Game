@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
+using Utility;
 
 namespace Game.Skills
 {
     public class SkillManager : Instancable<SkillManager>
     {
+        #region Public Properties
         public static event Action<SkillType> OnSkillUsed;
         public List<SkillView> skillViews;
+        #endregion
+        
 
         private void Start()
         {

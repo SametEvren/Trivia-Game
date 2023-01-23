@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class SkillView : MonoBehaviour
 {
-    public TextMeshProUGUI skillAmount;
+    #region Private Properties
+    [SerializeField]private TextMeshProUGUI skillAmount;
+    #endregion
 
     public void RenderText(int amount)
     {

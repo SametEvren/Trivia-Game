@@ -1,25 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Leaderboard.LeaderboardEntry;
+using Entrance.InfiniteScroll;
+using Utility;
 
 public class UIManager : Instancable<UIManager>
 {
-    public static event Action OnPopUpRequest;
-    public static event Action OnPopUpClosed;
-    [SerializeField] private GameObject leaderboardPanel;
-    public RectTransform leaderboardEntryRectTransform;
-    public GameObject content;
-    [SerializeField] LeaderboardAPI leaderboardAPI;
-    public List<string> entryNicknames;
-    public int scrollOrder;
-    public List<LeaderboardEntryModel> leaderboardEntryModels;
+    #region Public Properties
     public CanvasGroup canvasGroup;
+    public RectTransform leaderboardEntryRectTransform;
+    #endregion
     
-
-
+    #region Private Properties
+    [SerializeField] private GameObject leaderboardPanel;
+    #endregion
+    
     public void PopUpShow()
     {
         canvasGroup.alpha = 0;
@@ -34,7 +28,6 @@ public class UIManager : Instancable<UIManager>
                 canvasGroup.blocksRaycasts = true;
                 InfiniteScroll.Instance.completelyOpen = true;
             });
-
     }
 
     public void PopUpClose()
@@ -48,7 +41,6 @@ public class UIManager : Instancable<UIManager>
             {
                 canvasGroup.interactable = false;
                 canvasGroup.blocksRaycasts = false;
-                OnPopUpClosed?.Invoke();
             });
     }
 }

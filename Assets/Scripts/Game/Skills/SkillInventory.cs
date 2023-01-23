@@ -6,8 +6,10 @@ namespace Game.Skills
 {
     public class SkillInventory : MonoBehaviour
     {
+        #region Private Properties
         private static Dictionary<SkillType, int> _skillInventory = new();
         private const int ItemStartAmount = 2;
+        #endregion
         
         private void Awake()
         {
@@ -25,17 +27,7 @@ namespace Game.Skills
                 return 0;
             return _skillInventory[skillType];
         }
-
-        public static void AddSkill(SkillType skillType, int amount)
-        {
-            if (!SkillExistInInventory(skillType))
-                _skillInventory.Add(skillType, amount);
-            else
-                _skillInventory[skillType] += amount;
-            
-            PlayerPrefs.SetInt(skillType.ToString(), _skillInventory[skillType]);
-        }
-
+        
         public static void DecreaseSkill(SkillType skillType)
         {
             if (!SkillExistInInventory(skillType)) 
@@ -45,6 +37,16 @@ namespace Game.Skills
             PlayerPrefs.SetInt(skillType.ToString(), _skillInventory[skillType]);
         }
 
+        private static void AddSkill(SkillType skillType, int amount)
+        {
+            if (!SkillExistInInventory(skillType))
+                _skillInventory.Add(skillType, amount);
+            else
+                _skillInventory[skillType] += amount;
+            
+            PlayerPrefs.SetInt(skillType.ToString(), _skillInventory[skillType]);
+        }
+        
         private static bool SkillExistInInventory(SkillType skillType)
         {
             return _skillInventory.ContainsKey(skillType);
