@@ -1,3 +1,4 @@
+using Sound;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,7 @@ namespace Scene
     
         public void UploadGameScene()
         {
+            AudioManager.Instance.PlaySFX("Play");
             SceneManager.LoadScene(GameSceneName);
         }
     }

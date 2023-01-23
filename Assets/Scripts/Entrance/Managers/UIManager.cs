@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using Entrance.InfiniteScroll;
+using Sound;
 using Utility;
 
 public class UIManager : Instancable<UIManager>
@@ -34,6 +35,7 @@ public class UIManager : Instancable<UIManager>
     {
         canvasGroup.alpha = 1;
         InfiniteScroll.Instance.completelyOpen = false;
+        AudioManager.Instance.PlaySFX("Leaderboard Close");
         var popUpSequence = DOTween.Sequence()
             .Append(canvasGroup.DOFade(0, 0.5f))
             .Join(leaderboardPanel.transform.DOScale(0f, 0.5f))

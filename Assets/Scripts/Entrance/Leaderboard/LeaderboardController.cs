@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Entrance.InfiniteScroll;
 using Entrance.Leaderboard.LeaderboardEntry;
+using Sound;
 using UnityEngine;
 using Utility;
 
@@ -27,6 +28,7 @@ namespace Entrance.Leaderboard
         public void OnClickedLeaderboardButton()
         {
             StartCoroutine(GetLeaderboard());
+            AudioManager.Instance.PlaySFX("Leaderboard");
         }
         
         private IEnumerator GetLeaderboard()

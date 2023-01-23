@@ -4,6 +4,7 @@ using DG.Tweening;
 using Game.Questions;
 using Game.Score;
 using Game.Skills;
+using Sound;
 using TMPro;
 using UnityEngine;
 using Utility;
@@ -71,8 +72,9 @@ namespace Game.Managers
 
         private void AnswerFeedback(bool isCorrect)
         {
-
             answerFeedback.text = isCorrect ? "Correct Answer!" : "Wrong Answer!";
+            AudioManager.Instance.PlaySFX("Button Select");
+            AudioManager.Instance.PlaySFX(isCorrect ? "Correct" : "Wrong");
             answerFeedback.color = isCorrect ? Color.green : Color.red;
             answerFeedback.gameObject.SetActive(true);
             var sequence = DOTween.Sequence()
@@ -118,12 +120,15 @@ namespace Game.Managers
         
         private void HandleSkillUsed(SkillType skill)
         {
+            AudioManager.Instance.PlaySFX("Button Select");
             switch (skill)
             {
                 case SkillType.DoubleChance:
                     _doubleChance = true;
+                    AudioManager.Instance.PlayDelayedSFX("Double Chance");
                     break;
                 case SkillType.Bomb:
+                    AudioManager.Instance.PlayDelayedSFX("Bomb");
                     var answersToBomb = HelperMethods.SelectRandomWrongChoices(correctAnswer);
                     foreach (var answer in answersToBomb)
                     {
@@ -131,9 +136,11 @@ namespace Game.Managers
                     }
                     break;
                 case SkillType.Skip:
+                    AudioManager.Instance.PlayDelayedSFX("Skip");
                     ChangeQuestion();
                     break;
                 case SkillType.MagicAnswer:
+                    AudioManager.Instance.PlayDelayedSFX("Magic Answer");
                     HandleQuestionAnswered(correctAnswer);
                     break;
                 default:
