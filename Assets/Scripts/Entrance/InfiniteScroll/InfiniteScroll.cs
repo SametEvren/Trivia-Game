@@ -12,10 +12,7 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
 
     [SerializeField]
     private ScrollContent scrollContent;
-    
-    [SerializeField]
-    private float outOfBoundsThreshold;
-    
+
     private InfiniteScrollRect scrollRect;
     
     private Vector2 lastDragPosition;
@@ -38,11 +35,6 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
         scrollRect.vertical = true;
         scrollRect.horizontal = false;
         scrollRect.movementType = InfiniteScrollRect.MovementType.Unrestricted;
-
-        // outOfBoundsThreshold *= scrollContent.AdjustMultiplier;
-        // var adjustment = (scrollContent.ReferenceHeight - Screen.height) / (scrollContent.ReferenceHeight / (Screen.height / 2));
-        // outOfBoundsThreshold -= adjustment;
-        //*= scrollContent.AdjustMultiplier;
     }
     
     public void OnBeginDrag(PointerEventData eventData)
@@ -95,11 +87,11 @@ public class InfiniteScroll : Instancable<InfiniteScroll>, IBeginDragHandler, ID
         Transform endItem = scrollRect.content.GetChild(endItemIndex);
         Vector2 newPos = endItem.position;
 
-        if (positiveDrag) //mouse upwards
+        if (positiveDrag) 
         {
             newPos.y = endItem.position.y - scrollContent.ChildHeight * scrollContent.AdjustMultiplier * 1f - scrollContent.ItemSpacing;
         }
-        else //mouse downwards
+        else 
         {
             newPos.y = endItem.position.y + scrollContent.ChildHeight * scrollContent.AdjustMultiplier * 1f + scrollContent.ItemSpacing;
         }

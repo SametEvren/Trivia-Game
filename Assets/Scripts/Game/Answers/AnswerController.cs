@@ -12,11 +12,17 @@ namespace Game.Answers
         [SerializeField] private string optionName;
         private AnswerStatus _status = AnswerStatus.Default;
         
-        
         private void Start()
         {
             GameManager.OnQuestionAnswered += ChangeButtonValidity;
             GameManager.OnQuestionChanged += ResetAnswer;
+        }
+        
+        public void ChangeButtonStatus(AnswerStatus status)
+        { 
+            _status = status;
+            button.interactable = status == AnswerStatus.Default;
+            view.SetBackgroundColor(GetBackgroundColor());
         }
 
         private void ChangeButtonValidity(string chosenAnswer, string correctAnswer)
@@ -31,14 +37,7 @@ namespace Game.Answers
             
             ChangeButtonStatus(AnswerStatus.Correct);
         }
-
-        private void ChangeButtonStatus(AnswerStatus status)
-        { 
-            _status = status;
-            button.interactable = status == AnswerStatus.Default;
-            view.SetBackgroundColor(GetBackgroundColor());
-        }
-
+        
         private void ResetAnswer(int questionIndex)
         {
             ChangeButtonStatus(AnswerStatus.Default);

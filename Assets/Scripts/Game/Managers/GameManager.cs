@@ -3,23 +3,32 @@ using System.Collections;
 using DG.Tweening;
 using Game.Questions;
 using Game.Score;
+using Game.Skills;
 using TMPro;
 using UnityEngine;
+using Utility;
 
 namespace Game.Managers
 {
     public class GameManager : Instancable<GameManager>
     {
         public static event Action<string,string> OnQuestionAnswered; 
-        public static event Action<int> OnQuestionChanged ; 
+        
+        public static event Action<int> OnQuestionChanged; 
 
         public int score;
         public TextMeshProUGUI scoreText;
+        public TextMeshProUGUI answerFeedback;
         public Timer.Timer timer;
         public int currentQuestionIndex;
 
         private QuestionData _questionData;
         private ScoreConfig _scoreConfig;
+        private bool _doubleChance;
+        private string correctAnswer => _questionData
+            .questions[currentQuestionIndex]
+            .answer;
+
         
         private IEnumerator Start()
         {
@@ -30,26 +39,49 @@ namespace Game.Managers
             ScoreAPI.ReadDataFromJSON();
             yield return new WaitUntil(() => ScoreAPI.scoreConfig != null);
             _scoreConfig = ScoreAPI.scoreConfig;
-            
-            LoadQuestion();
-        }
 
+            SkillManager.OnSkillUsed += HandleSkillUsed;
+            LoadQuestion();
+            GetAndShowScore();
+        }
+        
         public void HandleQuestionAnswered(string chosenAnswer)
         {
-            string correctAnswer = _questionData
-                .questions[currentQuestionIndex]
-                .answer;
-        
+            
+            bool isWrongAnswer = correctAnswer != chosenAnswer;
+
+            if (isWrongAnswer && _doubleChance)
+            {
+                _doubleChance = false;
+                QuestionController.Instance.DisableAnswer(chosenAnswer);
+                return;
+            }
+            
             OnQuestionAnswered?.Invoke(chosenAnswer,correctAnswer);
 
             if (chosenAnswer == String.Empty)
                 UpdateScoreAndText(_scoreConfig.timeout);
             else
-                UpdateScoreAndText(correctAnswer == chosenAnswer ? _scoreConfig.correct : _scoreConfig.wrong);
+                UpdateScoreAndText(isWrongAnswer ? _scoreConfig.wrong : _scoreConfig.correct);
 
+            AnswerFeedback(!isWrongAnswer);
             DOVirtual.DelayedCall(1f, ChangeQuestion);
         }
-    
+
+        private void AnswerFeedback(bool isCorrect)
+        {
+
+            answerFeedback.text = isCorrect ? "Correct Answer!" : "Wrong Answer!";
+            answerFeedback.color = isCorrect ? Color.green : Color.red;
+            answerFeedback.gameObject.SetActive(true);
+            var sequence = DOTween.Sequence()
+                .Append(answerFeedback.transform.DOScale(1.2f, 0.5f))
+                .Append(answerFeedback.transform.DOScale(1f, 0.5f))
+                .OnComplete(() =>
+                {
+                    answerFeedback.gameObject.SetActive(false);
+                });
+        }
         private void UpdateScoreAndText(int amount)
         {
             float oldScore = score;
@@ -59,6 +91,10 @@ namespace Game.Managers
                 {
                     score = Convert.ToInt16(oldScore);
                     scoreText.text = score.ToString();
+                })
+                .OnComplete(() =>
+                {
+                    PlayerPrefs.SetInt("TotalScore", score);
                 });
         }
     
@@ -66,15 +102,47 @@ namespace Game.Managers
         {
             currentQuestionIndex++;
             currentQuestionIndex %= _questionData.questions.Count;
-        
+
+            _doubleChance = false;
             OnQuestionChanged?.Invoke(currentQuestionIndex);
             LoadQuestion();
         }
     
         private void LoadQuestion()
         {
-            StartCoroutine(QuestionController.Instance.UpdateQuestionView());
+            QuestionController.Instance.UpdateQuestionView();
             timer.RestartTimer();
+        }
+        
+        private void HandleSkillUsed(SkillType skill)
+        {
+            switch (skill)
+            {
+                case SkillType.DoubleChance:
+                    _doubleChance = true;
+                    break;
+                case SkillType.Bomb:
+                    var answersToBomb = HelperMethods.SelectRandomWrongChoices(correctAnswer);
+                    foreach (var answer in answersToBomb)
+                    {
+                        QuestionController.Instance.DisableAnswer(answer);
+                    }
+                    break;
+                case SkillType.Skip:
+                    ChangeQuestion();
+                    break;
+                case SkillType.MagicAnswer:
+                    HandleQuestionAnswered(correctAnswer);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(skill), skill, null);
+            }
+        }
+
+        private void GetAndShowScore()
+        {
+            score = PlayerPrefs.GetInt("TotalScore", 0);
+            scoreText.text = score.ToString();
         }
     }
 }
