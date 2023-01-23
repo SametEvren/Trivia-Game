@@ -2382,8 +2382,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Correct Answer!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ec0497c8e3ced974a999683e11a8a360, type: 2}
-  m_sharedMaterial: {fileID: -3667758223531537893, guid: ec0497c8e3ced974a999683e11a8a360, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6a4778d127a0a9b48964d5cedc5e6b54, type: 2}
+  m_sharedMaterial: {fileID: -3667758223531537893, guid: 6a4778d127a0a9b48964d5cedc5e6b54, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
